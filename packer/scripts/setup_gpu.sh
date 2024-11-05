@@ -24,7 +24,8 @@ unzip awscliv2.zip
 sudo ./aws/install
 
 echo "* * Updating NVIDIA driver prerequisites * *"
-sudo apt-get install -y gcc make linux-headers-$(uname -r)
+sudo apt-get install -y gcc gcc-12 make linux-headers-$(uname -r)
+sudo ln -s -f /usr/bin/gcc-12 /usr/bin/gcc
 cat << EOF | sudo tee --append /etc/modprobe.d/blacklist.conf
 blacklist vga16fb
 blacklist nouveau
